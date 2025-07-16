@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interact Bot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #cfd8dc;
+    }
+
+    .invite-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 35px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .invite-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-box {
+      background-color: #1c1c1c;
+      border-radius: 16px;
+      padding: 30px;
+      width: 280px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-box h3 {
+      margin-top: 0;
+      color: #00bcd4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #121212;
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Interact Bot 4</h1>
+    <p>Your all-in-one Discord bot for moderation and music.</p>
+    <a href="https://discord.com/oauth2/authorize?client_id=891577090590261299&permissions=8&integration_type=0&scope=bot" class="invite-btn" target="main" >Invite the Bot</a>
+  </header>
+
+  <section class="features">
+    <div class="feature-box">
+      <h3>Advanced Moderation</h3>
+      <p>Ban, mute, kick, and manage users with ease. Custom moderation logs and anti-spam tools included.</p>
+    </div>
+    <div class="feature-box">
+      <h3>High Quality Music</h3>
+      <p>Stream music from YouTube, Spotify, and more. Queue, skip, and loop with premium clarity.</p>
+    </div>
+    <div class="feature-box">
+      <h3>24/7 Uptime</h3>
+      <p>Always online with lightning-fast response times. Hosted on a secure, dedicated server.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Custom Commands</h3>
+      <p>Personalize your bot experience with fully customizable commands and prefixes.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Interact Developments. All rights reserved.
+  </footer>
+
+</body>
+</html>
