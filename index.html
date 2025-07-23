@@ -1,130 +1,1081 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interact Bot</title>
-  <link rel="icon" type="image/png" href="favicon ib.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interact Developments - Discord Development Experts</title>
+    <link rel="icon" type="image/png" href="favicon ib.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    header {
-      text-align: center;
-      padding: 60px 20px 30px;
-    }
+        :root {
+            --primary: #5865F2;
+            --secondary: #eb459e;
+            --dark: #111216;
+            --darker: #0c0c10;
+            --light: #ffffff;
+            --gray: #b5bac1;
+            --dark-gray: #1e1f22;
+        }
 
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-      font-weight: 600;
-    }
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
 
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      color: #cfd8dc;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .invite-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 35px;
-      font-size: 1.1em;
-      font-weight: 600;
-      color: white;
-      background: linear-gradient(90deg, #1e3c72, #2a5298);
-      border: none;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
+        /* Header Styles */
+        header {
+            background-color: rgba(17, 18, 22, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    .invite-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(0,0,0,0.5);
-    }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 60px 20px;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .feature-box {
-      background-color: #1c1c1c;
-      border-radius: 16px;
-      padding: 30px;
-      width: 280px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
 
-    .feature-box:hover {
-      transform: translateY(-10px);
-    }
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-    .feature-box h3 {
-      margin-top: 0;
-      color: #00bcd4;
-    }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #121212;
-      color: #888;
-      font-size: 0.9em;
-    }
-  </style>
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at top right, rgba(88, 101, 242, 0.15), transparent 30%),
+                        radial-gradient(circle at bottom left, rgba(235, 69, 158, 0.15), transparent 30%);
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .secondary-button:hover {
+            background: rgba(88, 101, 242, 0.1);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--dark);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--dark-gray);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(88, 101, 242, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background-color: var(--darker);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            background: var(--dark-gray);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(88, 101, 242, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background-color: var(--dark);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: var(--dark-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--gray);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--light);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--darker);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(88, 101, 242, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-about p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--light);
+        }
+
+        .footer-contact p {
+            color: var(--gray);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Services Page Specific Styles */
+        .services-page {
+            padding: 120px 0 80px;
+        }
+
+        .bots-section {
+            margin-bottom: 80px;
+        }
+
+        .bots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .bot-card {
+            background: var(--dark-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .bot-header {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .bot-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .bot-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .bot-content {
+            padding: 30px;
+        }
+
+        .bot-features {
+            margin-bottom: 30px;
+        }
+
+        .bot-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .bot-features i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .invite-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .invite-active {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .invite-coming-soon {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .coming-soon-text {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: var(--secondary);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-image {
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin: 0 auto;
+                padding-top: 80px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .cta-button, .secondary-button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <div class="logo-text">Interact Developments</div>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a class="cta-button" href="#services-page" >Get Started</a>
+                </div>
+    </header>
 
-  <header>
-    <h1>Interact Bot 4</h1>
-    <p>Your all-in-one Discord bot for moderation and music.</p>
-    <a href="https://discord.com/oauth2/authorize?client_id=891577090590261299&permissions=8&integration_type=0&scope=bot" class="invite-btn" target="main" >Invite the Bot</a>
-    <a href="about.html" class="invite-btn">About Us</a>
-  </header>
-
-  <section class="features">
-    <div class="feature-box">
-      <h3>Advanced Moderation</h3>
-      <p>Ban, mute, kick, and manage users with ease. Custom moderation logs and anti-spam tools included.</p>
-    </div>
-    <div class="feature-box">
-      <h3>High Quality Music</h3>
-      <p>Stream music from YouTube, Spotify, and more. Queue, skip, and loop with premium clarity.</p>
-    </div>
-    <div class="feature-box">
-      <h3>24/7 Uptime</h3>
-      <p>Always online with lightning-fast response times. Hosted on a secure, dedicated server.</p>
-    </div>
-    <div class="feature-box">
-      <h3>Custom Commands</h3>
-      <p>Personalize your bot experience with fully customizable commands and prefixes.</p>
-    </div>
-  </section>
-
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforming Discord Communities Through Innovative Development</h1>
+                <p>We create cutting-edge Discord bots, custom integrations, and community solutions that elevate your server experience to the next level.</p>
+                <div class="hero-buttons">
+                    <a href="#services-page" class="cta-button">Our Services</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="150" r="100" fill="rgba(88, 101, 242, 0.2)" />
+                <circle cx="400" cy="250" r="80" fill="rgba(235, 69, 158, 0.2)" />
+                <rect x="100" y="100" width="400" height="200" rx="20" fill="rgba(30, 31, 34, 0.7)" stroke="rgba(88, 101, 242, 0.5)" stroke-width="2"/>
+                <circle cx="150" cy="150" r="10" fill="#5865F2" />
+                <circle cx="180" cy="150" r="10" fill="#3BA55D" />
+                <circle cx="210" cy="150" r="10" fill="#FAA81A" />
+                <rect x="130" y="180" width="200" height="20" rx="10" fill="rgba(255, 255, 255, 0.1)" />
+                <rect x="130" y="210" width="150" height="15" rx="7" fill="rgba(255, 255, 255, 0.05)" />
+            </svg>
+        </div>
     </section>
 
-  <div style="text-align:center; margin:40px 0;">
-    <a href="https://discord.gg/5kAuT4yVCg" class="invite-btn" target="_blank">Support Server</a>
-  </div>
+    <!-- Services Page Section -->
+    <section class="services-page" id="services-page">
+        <div class="container">
+            <h2 class="section-title">Our <span>Bots</span></h2>
+            <div class="bots-grid">
+                <!-- Interact Bot 4 -->
+                <div class="bot-card">
+                    <div class="bot-header">
+                        <h3>Interact Bot 4</h3>
+                        <p>Advanced Community Management</p>
+                    </div>
+                    <div class="bot-content">
+                        <ul class="bot-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Advanced moderation tools with AI-powered detection</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Customizable welcome and farewell messages</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Role assignment and verification systems</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Leveling and experience tracking</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Comprehensive logging and audit trails</span>
+                            </li>
+                        </ul>
+                        <a href="https://discord.com/oauth2/authorize?client_id=891577090590261299&permissions=8&integration_type=0&scope=bot" class="invite-button invite-active">
+                            <i class="fas fa-robot"></i> Invite Bot
+                        </a>
+                    </div>
+                </div>
 
-  <footer>
-    &copy; 2025 Interact Developments. All rights reserved.
-  </footer>
+                <!-- Interact Bot -->
+                <div class="bot-card">
+                    <div class="bot-header">
+                        <h3>Interact Bot</h3>
+                        <p>Next-Gen Community Experience</p>
+                    </div>
+                    <div class="bot-content">
+                        <ul class="bot-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Revolutionary AI chat moderation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Advanced analytics and insights dashboard</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Custom command builder with no-code interface</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Multi-server management capabilities</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Integration with 50+ external services</span>
+                            </li>
+                        </ul>
+                        <button class="invite-button invite-coming-soon" disabled>
+                            <i class="fas fa-clock"></i> Invite Bot
+                            <span class="coming-soon-text">Coming Soon</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our <span>Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Custom Discord Bots</h3>
+                    <p>Tailored bot solutions with moderation, entertainment, and utility features designed specifically for your community needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>API Integrations</h3>
+                    <p>Seamless integration with external services and platforms to enhance your Discord server functionality.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Server Design</h3>
+                    <p>Professional server architecture and channel organization to create an intuitive user experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security Solutions</h3>
+                    <p>Advanced security measures and anti-raid systems to protect your community from malicious activities.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics & Insights</h3>
+                    <p>Comprehensive data analysis tools to understand your community growth and engagement patterns.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Automation Systems</h3>
+                    <p>Workflow automation to streamline server management and reduce manual administrative tasks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Our <span>Portfolio</span></h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div style="background: linear-gradient(45deg, #5865F2, #3BA55D); height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Community Manager Pro</h3>
+                        <p>Advanced moderation and community management bot</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="background: linear-gradient(45deg, #eb459e, #faa81a); height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Music Harmony</h3>
+                        <p>High-quality music streaming bot with playlist support</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2>500+</h2>
+                    <p>Servers Optimized</p>
+                </div>
+                <div class="stat-item">
+                    <h2>150K+</h2>
+                    <p>Users Served</p>
+                </div>
+                <div class="stat-item">
+                    <h2>98%</h2>
+                    <p>Client Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h2>24/7</h2>
+                    <p>Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our <span>Team</span></h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div style="background: linear-gradient(45deg, #5865F2, #eb459e); height: 250px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white;">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>Devansh K.</h3>
+                        <p>Founder & Sr. Developer</p>
+                        <div class="social-links">
+                            <a href="https://github.com/DevanshInteract"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/devanshhhinteract/"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div style="background: linear-gradient(45deg, #3BA55D, #faa81a); height: 250px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white;">
+                        <i class="fas fa-user-ninja"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sharthak K.</h3>
+                        <p>CEO & Frontend Developer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Discuss Your Project</h3>
+                    <p>Have a project in mind? Our team is ready to help you create exceptional Discord experiences. Reach out to us today!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <p>interactdevelopments#twoblade.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p>Nagpur, Maharashtra, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Interact Developments</div>
+                    <p>Creating innovative Discord solutions to enhance community engagement and server management since 2019.</p>
+                    <div class="social-links">
+                        <a href="https://discord.gg/5kAuT4yVCg"><i class="fab fa-discord fa-2x"></i></a>
+                        
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> interactdevelopments#twoblade.com</p>
+                    
+                    <p><i class="fas fa-map-marker-alt"></i>Nagpur, Maharashtra, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Interact Developments. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(17, 18, 22, 0.95)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.backgroundColor = 'rgba(17, 18, 22, 0.8)';
+                header.style.padding = '20px 0';
+            }
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.service-card, .portfolio-item, .team-member, .bot-card');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.service-card, .portfolio-item, .team-member, .bot-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load
+        window.addEventListener('load', animateOnScroll);
+    </script>
 </body>
 </html>
