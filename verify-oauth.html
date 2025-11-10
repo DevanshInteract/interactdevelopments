@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord OAuth Verification</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: white;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .error {
+      color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      border-left: 4px solid #ff6b6b;
+    }
+    .success {
+      color: #51cf66;
+      background: rgba(81, 207, 102, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      border-left: 4px solid #51cf66;
+    }
+    .warning {
+      color: #ffd93d;
+      background: rgba(255, 217, 61, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      border-left: 4px solid #ffd93d;
+    }
+    button {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    .code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      word-break: break-all;
+      margin-top: 10px;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+    .checklist li:before {
+      content: '▸ ';
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 Discord OAuth Configuration Checker</h1>
+    
+    <div class="section">
+      <h2>1. Verify Discord Developer Portal Settings</h2>
+      <div class="warning">
+        <strong>⚠️ Important:</strong> Go to <a href="https://discord.com/developers/applications/892280455032877096/oauth2" target="_blank" style="color: white;">Discord Developer Portal</a> and check:
+        <ul class="checklist">
+          <li>Client ID should be: <code>892280455032877096</code></li>
+          <li>Redirect URIs should include: <code>https://interactdevelopments.me/callback</code></li>
+          <li>Redirect URIs should EXACTLY match (no trailing slash, same protocol)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Test OAuth URL</h2>
+      <p>Click the button below to test if the OAuth URL is correctly formatted:</p>
+      <button onclick="testOAuthURL()">Test OAuth URL</button>
+      <div id="urlResult"></div>
+    </div>
+
+    <div class="section">
+      <h2>3. Common Issues</h2>
+      <div class="error">
+        <strong>"Invalid Form Body" Error Causes:</strong>
+        <ul class="checklist">
+          <li>Redirect URI doesn't match Developer Portal exactly</li>
+          <li>Missing or incorrect Client ID</li>
+          <li>Double-encoding URL parameters</li>
+          <li>Missing required parameters (client_id, redirect_uri, response_type, scope)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. How to Fix</h2>
+      <div class="success">
+        <ol>
+          <li><strong>Go to Discord Developer Portal</strong> → Your Application → OAuth2</li>
+          <li><strong>Check Redirect URIs:</strong>
+            <div class="code">
+https://interactdevelopments.me/callback
+            </div>
+          </li>
+          <li><strong>If not there, click "Add Redirect"</strong> and paste the URL above</li>
+          <li><strong>Click "Save Changes"</strong></li>
+          <li><strong>Try signing in again</strong></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Current Configuration</h2>
+      <div class="code" id="currentConfig"></div>
+    </div>
+  </div>
+
+  <script>
+    function testOAuthURL() {
+      const CLIENT_ID = '892280455032877096';
+      const REDIRECT_URI = 'https://interactdevelopments.me/callback';
+      const SCOPE = 'identify email guilds';
+      const RESPONSE_TYPE = 'code';
+      
+      const params = new URLSearchParams({
+        client_id: CLIENT_ID,
+        redirect_uri: REDIRECT_URI,
+        response_type: RESPONSE_TYPE,
+        scope: SCOPE
+      });
+      
+      const authUrl = `https://discord.com/oauth2/authorize?${params.toString()}`;
+      
+      // Show the generated URL
+      document.getElementById('urlResult').innerHTML = `
+        <div class="code" style="margin-top: 15px;">
+          ${authUrl}
+        </div>
+        <button onclick="window.location.href='${authUrl}'" style="margin-top: 10px;">
+          Try Discord Login
+        </button>
+      `;
+    }
+
+    // Show current configuration
+    const config = `
+Client ID: 892280455032877096
+Redirect URI: https://interactdevelopments.me/callback
+Scopes: identify email guilds
+Response Type: code
+    `.trim();
+    document.getElementById('currentConfig').textContent = config;
+  </script>
+</body>
+</html>
+
