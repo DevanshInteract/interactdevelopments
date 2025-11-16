@@ -20,14 +20,12 @@
       --text-primary: #f0f0f0;
       --text-secondary: #a0a0a6;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
     body {
       background: var(--darker);
       color: var(--text-primary);
@@ -35,14 +33,12 @@
       position: relative;
       min-height: 100vh;
     }
-
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-
     /* ===== WEBGL CANVAS ===== */
     #webgl-canvas {
       position: fixed;
@@ -52,7 +48,6 @@
       height: 100%;
       z-index: -1;
     }
-
     /* ===== GRADIENT BUTTONS (MIMICS REACT COMPONENT) ===== */
     .gradient-button {
       display: inline-flex;
@@ -74,7 +69,6 @@
       border: none;
       outline: none;
     }
-
     .gradient-button::before {
       content: '';
       position: absolute;
@@ -85,21 +79,17 @@
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       z-index: -1;
     }
-
     .gradient-button:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
     }
-
     .gradient-button:active {
       transform: translateY(0);
     }
-
     /* Variant Gradient Button */
     .gradient-button-variant {
       background: linear-gradient(90deg, var(--secondary), var(--accent));
     }
-
     /* ===== NEON BUTTONS (REACT COMPONENT STYLE) ===== */
     .neon-button {
       display: inline-flex;
@@ -120,7 +110,6 @@
       border-color: rgba(59, 130, 246, 0.2);
       transition: all 0.3s ease;
     }
-
     /* Neon effect - top gradient line */
     .neon-button::before {
       content: '';
@@ -134,7 +123,6 @@
       opacity: 0;
       transition: all 0.5s ease;
     }
-
     /* Neon effect - bottom gradient line */
     .neon-button::after {
       content: '';
@@ -148,38 +136,31 @@
       opacity: 0;
       transition: all 0.5s ease;
     }
-
     .neon-button:hover {
       background-color: rgba(59, 130, 246, 0);
       border-color: rgba(59, 130, 246, 0.3);
     }
-
     .neon-button:hover::before {
       opacity: 1;
     }
-
     .neon-button:hover::after {
       opacity: 0.3;
     }
-
     /* Variant: No Neon */
     .neon-button.no-neon::before,
     .neon-button.no-neon::after {
       display: none;
     }
-
     /* Variant: Solid */
     .neon-button.solid {
       background-color: #3b82f6;
       color: white;
       border-color: transparent;
     }
-
     .neon-button.solid:hover {
       background-color: #2563eb;
       border-color: rgba(255, 255, 255, 0.5);
     }
-
     /* ===== NAVBAR BUTTONS (TEXT LINKS) ===== */
     .nav-link {
       color: var(--gray);
@@ -189,11 +170,9 @@
       border-radius: 8px;
       transition: color 0.3s;
     }
-
     .nav-link:hover {
       color: var(--light);
     }
-
     /* ===== HEADER ===== */
     header {
       position: fixed;
@@ -206,19 +185,16 @@
       background: rgba(12, 12, 16, 0.7);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
     .logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .logo-text {
       font-size: 1.6rem;
       font-weight: 700;
@@ -227,12 +203,10 @@
       background-clip: text;
       color: transparent;
     }
-
     .nav-links {
       display: flex;
       gap: 12px;
     }
-
     /* ===== HERO ===== */
     .hero {
       min-height: 100vh;
@@ -244,7 +218,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .top-banner {
       background: rgba(30, 31, 34, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -258,7 +231,6 @@
       animation: fadeInUp 0.6s ease forwards;
       opacity: 0;
     }
-
     .top-banner a {
       color: var(--accent);
       text-decoration: none;
@@ -267,7 +239,6 @@
       align-items: center;
       gap: 4px;
     }
-
     .hero h1 {
       font-size: 2.8rem;
       line-height: 1.2;
@@ -278,7 +249,6 @@
       animation: fadeInUp 0.6s ease 0.1s forwards;
       opacity: 0;
     }
-
     .hero p {
       font-size: 1.1rem;
       color: var(--text-secondary);
@@ -288,7 +258,6 @@
       animation: fadeInUp 0.6s ease 0.2s forwards;
       opacity: 0;
     }
-
     .hero-actions {
       display: flex;
       justify-content: center;
@@ -296,35 +265,30 @@
       animation: fadeInUp 0.6s ease 0.3s forwards;
       opacity: 0;
     }
-
     /* ===== SERVICES / BOTS ===== */
     section {
       padding: 100px 0;
       position: relative;
       z-index: 2;
     }
-
     .section-title {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 60px;
       color: var(--light);
     }
-
     .section-title span {
       background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 32px;
       margin-top: 40px;
     }
-
     .card {
       background: linear-gradient(
         135deg,
@@ -349,7 +313,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         inset 0 -1px 0 rgba(0, 0, 0, 0.2);
     }
-
     /* Windows 7 Aero Glass Shine Effect */
     .card::before {
       content: '';
@@ -367,7 +330,6 @@
       border-radius: 15px 15px 0 0;
       pointer-events: none;
     }
-
     /* Additional glass highlight */
     .card::after {
       content: '';
@@ -385,12 +347,10 @@
       animation: shimmer 3s infinite;
       pointer-events: none;
     }
-
     @keyframes shimmer {
       0% { left: -100%; }
       100% { left: 150%; }
     }
-
     .card:hover {
       transform: translateY(-8px);
       box-shadow: 
@@ -399,7 +359,6 @@
         inset 0 -1px 0 rgba(0, 0, 0, 0.3);
       border-color: rgba(255, 255, 255, 0.25);
     }
-
     .card-header {
       text-align: center;
       padding: 20px 0;
@@ -414,14 +373,12 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.2),
         inset 0 -1px 0 rgba(0, 0, 0, 0.2);
     }
-
     .features {
       list-style: none;
       margin-bottom: 28px;
       position: relative;
       z-index: 1;
     }
-
     .features li {
       display: flex;
       align-items: flex-start;
@@ -429,12 +386,10 @@
       margin-bottom: 14px;
       color: var(--text-secondary);
     }
-
     .features i {
       color: var(--primary);
       margin-top: 4px;
     }
-
     .invite-button {
       display: block;
       width: 100%;
@@ -449,18 +404,15 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-
     .invite-button:hover {
       transform: translateY(-2px);
     }
-
     .invite-coming-soon {
       background: rgba(255, 255, 255, 0.08) !important;
       color: var(--gray) !important;
       cursor: not-allowed;
       position: relative;
     }
-
     .coming-soon-tag {
       position: absolute;
       top: -8px;
@@ -472,7 +424,6 @@
       border-radius: 10px;
       font-weight: bold;
     }
-
     /* ===== PRICING CARDS (AERO GLASS EFFECT) ===== */
     .pricing-card {
       background: linear-gradient(
@@ -501,7 +452,6 @@
       display: flex;
       flex-direction: column;
     }
-
     /* Pricing card glass shine effect */
     .pricing-card::before {
       content: '';
@@ -519,7 +469,6 @@
       border-radius: 16px 16px 0 0;
       pointer-events: none;
     }
-
     /* Pricing card shimmer effect */
     .pricing-card::after {
       content: '';
@@ -537,7 +486,6 @@
       animation: shimmer 3s infinite;
       pointer-events: none;
     }
-
     .pricing-card:hover {
       transform: translateY(-8px);
       box-shadow: 
@@ -546,7 +494,6 @@
         inset 0 -1px 0 rgba(0, 0, 0, 0.3);
       border-color: rgba(255, 255, 255, 0.25);
     }
-
     .pricing-card.pricing-featured {
       border-color: rgba(255, 107, 107, 0.3);
       background: linear-gradient(
@@ -556,7 +503,6 @@
         rgba(0, 0, 0, 0.1) 100%
       );
     }
-
     .pricing-card.pricing-featured::before {
       background: linear-gradient(
         180deg,
@@ -565,7 +511,6 @@
         transparent 100%
       );
     }
-
     .pricing-header {
       text-align: center;
       padding-bottom: 24px;
@@ -574,7 +519,6 @@
       position: relative;
       z-index: 1;
     }
-
     .pricing-tier {
       font-size: 1.25rem;
       color: var(--light);
@@ -582,7 +526,6 @@
       display: block;
       margin-bottom: 24px;
     }
-
     .pricing-price {
       font-size: 2.5rem;
       font-weight: 600;
@@ -590,7 +533,6 @@
       display: block;
       margin-bottom: 12px;
     }
-
     .pricing-subtitle {
       font-size: 0.9rem;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
@@ -598,21 +540,18 @@
       background-clip: text;
       color: transparent;
     }
-
     .pricing-benefits {
       flex-grow: 1;
       margin-bottom: 32px;
       position: relative;
       z-index: 1;
     }
-
     .pricing-benefit {
       display: flex;
       align-items: center;
       gap: 12px;
       margin-bottom: 16px;
     }
-
     .pricing-benefit-icon {
       width: 20px;
       height: 20px;
@@ -622,47 +561,39 @@
       justify-content: center;
       flex-shrink: 0;
     }
-
     .pricing-benefit-icon.checked {
       background-color: var(--primary);
       color: white;
     }
-
     .pricing-benefit-icon.unchecked {
       background-color: rgba(255, 255, 255, 0.1);
       color: rgba(255, 255, 255, 0.3);
     }
-
     .pricing-benefit-text {
       color: var(--text-primary);
       font-size: 0.95rem;
     }
-
     .pricing-cta {
       position: relative;
       z-index: 1;
     }
-
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 32px;
       margin-top: 48px;
     }
-
     /* ===== STATS SECTION (NO ORANGE BG) ===== */
     .stats {
       background: transparent;
       padding: 80px 0;
     }
-
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 30px;
       text-align: center;
     }
-
     .stat-item {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -672,30 +603,25 @@
       -webkit-backdrop-filter: blur(12px);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .stat-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
-
     .stat-item h3 {
       font-size: 2.5rem;
       margin-bottom: 8px;
       font-weight: 700;
       color: var(--light);
     }
-
     .stat-item p {
       color: var(--text-secondary);
       font-size: 1rem;
     }
-
     /* ===== CONNECT WITH US SECTION (COMPACT) ===== */
     #contact {
       padding: 100px 0 80px;
       text-align: center;
     }
-
     .connect-title {
       font-size: 2.5rem;
       margin-bottom: 20px;
@@ -705,7 +631,6 @@
       color: transparent;
       font-weight: 800;
     }
-
     .connect-subtitle {
       font-size: 1.1rem;
       color: var(--text-secondary);
@@ -713,12 +638,10 @@
       margin: 0 auto 40px;
       line-height: 1.6;
     }
-
     .social-container {
       max-width: 600px;
       margin: 0 auto;
     }
-
     .social-card {
       background: linear-gradient(145deg, rgba(30, 31, 34, 0.7), rgba(15, 16, 20, 0.8));
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -731,21 +654,18 @@
                   0 0 30px rgba(124, 58, 237, 0.2);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-
     .social-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6),
                   0 0 30px rgba(139, 92, 246, 0.5),
                   0 0 40px rgba(124, 58, 237, 0.4);
     }
-
     .social-icons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
-
     .social-icon {
       display: flex;
       flex-direction: column;
@@ -753,7 +673,6 @@
       text-decoration: none;
       transition: all 0.3s ease;
     }
-
     .icon-container {
       width: 60px;
       height: 60px;
@@ -768,11 +687,9 @@
       -webkit-backdrop-filter: blur(6px);
       transition: all 0.3s ease;
     }
-
     .social-icon:hover .icon-container {
       transform: translateY(-8px) scale(1.1);
     }
-
     .icon-label {
       margin-top: 8px;
       color: var(--light);
@@ -781,32 +698,26 @@
       font-size: 0.85rem;
       transition: all 0.3s ease;
     }
-
     /* Social Icon Hover Effects */
     .social-icon.discord:hover .icon-container {
       background: #7289da;
       box-shadow: 0 0 15px rgba(114, 137, 218, 0.7);
     }
-
     .social-icon.github:hover .icon-container {
       background: #333;
       box-shadow: 0 0 15px rgba(51, 51, 51, 0.7);
     }
-
     .social-icon.linkedin:hover .icon-container {
       background: #0077b5;
       box-shadow: 0 0 15px rgba(0, 119, 181, 0.7);
     }
-
     .social-icon.instagram:hover .icon-container {
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       box-shadow: 0 0 15px rgba(225, 48, 108, 0.7);
     }
-
     .social-icon:hover svg {
       animation: shake 0.5s ease;
     }
-
     @keyframes shake {
       0%, 100% { transform: translateX(0) rotate(0); }
       20% { transform: translateX(-5px) rotate(-5deg); }
@@ -814,7 +725,6 @@
       60% { transform: translateX(-5px) rotate(-5deg); }
       80% { transform: translateX(5px) rotate(5deg); }
     }
-
     /* ===== FOOTER ===== */
     footer {
       background: var(--dark);
@@ -823,18 +733,15 @@
       text-align: center;
       color: var(--light);
     }
-
     footer p {
       margin-bottom: 16px;
       color: var(--gray);
     }
-
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     /* ===== SIGN-IN MODAL (AERO GLASS EFFECT) ===== */
     .signin-overlay {
       position: fixed;
@@ -852,12 +759,10 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-
     .signin-overlay.active {
       display: flex;
       opacity: 1;
     }
-
     .signin-card {
       position: relative;
       width: 90%;
@@ -885,11 +790,9 @@
       transform: scale(0.9);
       transition: transform 0.3s ease;
     }
-
     .signin-overlay.active .signin-card {
       transform: scale(1);
     }
-
     /* Glass shine effect for signin card */
     .signin-card::before {
       content: '';
@@ -907,7 +810,6 @@
       border-radius: 24px 24px 0 0;
       pointer-events: none;
     }
-
     /* Shimmer effect for signin card */
     .signin-card::after {
       content: '';
@@ -925,14 +827,12 @@
       animation: shimmer 3s infinite;
       pointer-events: none;
     }
-
     .signin-header {
       text-align: center;
       margin-bottom: 32px;
       position: relative;
       z-index: 1;
     }
-
     .signin-logo {
       width: 48px;
       height: 48px;
@@ -946,14 +846,12 @@
       position: relative;
       overflow: hidden;
     }
-
     .signin-logo::before {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
     }
-
     .signin-logo-icon {
       font-size: 24px;
       font-weight: bold;
@@ -963,7 +861,6 @@
       color: transparent;
       z-index: 1;
     }
-
     .signin-title {
       font-size: 24px;
       font-weight: 700;
@@ -973,22 +870,18 @@
       color: transparent;
       margin-bottom: 8px;
     }
-
     .signin-subtitle {
       font-size: 14px;
       color: rgba(255, 255, 255, 0.6);
     }
-
     .signin-form {
       position: relative;
       z-index: 1;
     }
-
     .signin-input-group {
       position: relative;
       margin-bottom: 20px;
     }
-
     .signin-input {
       width: 100%;
       height: 48px;
@@ -1002,18 +895,15 @@
       position: relative;
       z-index: 1;
     }
-
     .signin-input:focus {
       outline: none;
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.2);
       box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
     }
-
     .signin-input::placeholder {
       color: rgba(255, 255, 255, 0.3);
     }
-
     .signin-input-icon {
       position: absolute;
       left: 16px;
@@ -1023,7 +913,6 @@
       font-size: 18px;
       z-index: 2;
     }
-
     .signin-password-toggle {
       position: absolute;
       right: 16px;
@@ -1034,7 +923,6 @@
       font-size: 18px;
       z-index: 2;
     }
-
     .signin-options {
       display: flex;
       justify-content: space-between;
@@ -1042,7 +930,6 @@
       margin-bottom: 24px;
       font-size: 14px;
     }
-
     .signin-checkbox-label {
       display: flex;
       align-items: center;
@@ -1050,7 +937,6 @@
       color: rgba(255, 255, 255, 0.6);
       cursor: pointer;
     }
-
     .signin-checkbox {
       appearance: none;
       width: 18px;
@@ -1062,12 +948,10 @@
       position: relative;
       transition: all 0.2s ease;
     }
-
     .signin-checkbox:checked {
       background: var(--primary);
       border-color: var(--primary);
     }
-
     .signin-checkbox:checked::after {
       content: '✓';
       position: absolute;
@@ -1078,17 +962,14 @@
       font-size: 12px;
       font-weight: bold;
     }
-
     .signin-forgot-link {
       color: rgba(255, 255, 255, 0.6);
       text-decoration: none;
       transition: color 0.2s ease;
     }
-
     .signin-forgot-link:hover {
       color: var(--light);
     }
-
     .signin-submit-btn {
       width: 100%;
       height: 48px;
@@ -1104,7 +985,6 @@
       overflow: hidden;
       margin-bottom: 16px;
     }
-
     .signin-submit-btn::before {
       content: '';
       position: absolute;
@@ -1115,16 +995,13 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
       transition: left 1.5s ease;
     }
-
     .signin-submit-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
     }
-
     .signin-submit-btn:hover::before {
       left: 100%;
     }
-
     .signin-divider {
       display: flex;
       align-items: center;
@@ -1133,7 +1010,6 @@
       color: rgba(255, 255, 255, 0.3);
       font-size: 12px;
     }
-
     .signin-divider::before,
     .signin-divider::after {
       content: '';
@@ -1141,7 +1017,6 @@
       height: 1px;
       background: rgba(255, 255, 255, 0.1);
     }
-
     .signin-google-btn {
       width: 100%;
       height: 48px;
@@ -1160,13 +1035,11 @@
       position: relative;
       overflow: hidden;
     }
-
     .signin-google-btn:hover {
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.2);
       color: var(--light);
     }
-
     .signin-google-btn::before {
       content: '';
       position: absolute;
@@ -1177,11 +1050,9 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
       transition: left 1s ease;
     }
-
     .signin-google-btn:hover::before {
       left: 100%;
     }
-
     .signin-discord-btn {
       width: 100%;
       height: 48px;
@@ -1200,14 +1071,12 @@
       position: relative;
       overflow: hidden;
     }
-
     .signin-discord-btn:hover {
       background: rgba(88, 101, 242, 0.15);
       border-color: rgba(88, 101, 242, 0.5);
       color: rgba(88, 101, 242, 1);
       box-shadow: 0 0 20px rgba(88, 101, 242, 0.2);
     }
-
     .signin-discord-btn::before {
       content: '';
       position: absolute;
@@ -1218,30 +1087,25 @@
       background: linear-gradient(90deg, transparent, rgba(88, 101, 242, 0.2), transparent);
       transition: left 1s ease;
     }
-
     .signin-discord-btn:hover::before {
       left: 100%;
     }
-
     .signin-google-icon {
       font-size: 18px;
       font-weight: bold;
     }
-
     .signin-signup-link {
       text-align: center;
       margin-top: 24px;
       font-size: 13px;
       color: rgba(255, 255, 255, 0.6);
     }
-
     .signin-signup-link a {
       color: var(--light);
       text-decoration: none;
       font-weight: 500;
       position: relative;
     }
-
     .signin-signup-link a::after {
       content: '';
       position: absolute;
@@ -1252,11 +1116,9 @@
       background: var(--light);
       transition: width 0.3s ease;
     }
-
     .signin-signup-link a:hover::after {
       width: 100%;
     }
-
     .signin-close-btn {
       position: absolute;
       top: 20px;
@@ -1275,12 +1137,10 @@
       transition: all 0.2s ease;
       z-index: 2;
     }
-
     .signin-close-btn:hover {
       background: rgba(255, 255, 255, 0.1);
       color: var(--light);
     }
-
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .nav-links {
@@ -1333,7 +1193,6 @@
 <body>
   <!-- WebGL Canvas -->
   <canvas id="webgl-canvas"></canvas>
-
   <!-- Header -->
   <header>
     <div class="container navbar">
@@ -1352,7 +1211,6 @@
       <a href="#services" class="neon-button">Get Started</a>
     </div>
   </header>
-
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="container">
@@ -1360,10 +1218,8 @@
         <span>Become a Beta Tester</span>
         <a href="#services">Learn more →</a>
       </div>
-
       <h1>Powering Smarter Discord Communities with AI.</h1>
       <p>Premium AI Discord Developments with the best quality.<br>Save time and invite our bots to your server we are literally one for all.</p>
-
       <div class="hero-actions">
         <!-- Neon Buttons in Hero -->
         <a href="#services" class="neon-button">Get Started</a>
@@ -1371,7 +1227,6 @@
       </div>
     </div>
   </section>
-
   <!-- Services / Bots -->
   <section id="services">
     <div class="container">
@@ -1394,7 +1249,6 @@
             <i class="fas fa-robot"></i> Invite Bot
           </a>
         </div>
-
         <!-- Bot 2 -->
         <div class="card">
           <div class="card-header" style="background: linear-gradient(90deg, var(--secondary), var(--accent));">
@@ -1416,7 +1270,6 @@
       </div>
     </div>
   </section>
-
   <!-- Stats -->
    <section id="stats"></section>
   <section class="stats">
@@ -1441,7 +1294,6 @@
       </div>
     </div>
   </section>
-
   <!-- Pricing -->
   <section id="pricing">
     <div class="container">
@@ -1499,7 +1351,6 @@
             <a href="#services" class="neon-button" style="width: 100%; text-align: center; display: block;">Get started free</a>
           </div>
         </div>
-
         <!-- Pro Tier (Featured) -->
         <div class="pricing-card pricing-featured">
           <div class="pricing-header">
@@ -1549,7 +1400,6 @@
             <a href="#services" class="neon-button solid" style="width: 100%; text-align: center; display: block;">14-day free trial</a>
           </div>
         </div>
-
         <!-- Enterprise Tier -->
         <div class="pricing-card">
           <div class="pricing-header">
@@ -1571,25 +1421,22 @@
       </div>
     </div>
   </section>
-
   <!-- Contact / Connect With Us -->
   <section id="contact">
     <div class="container">
       <h2 class="connect-title">Connect <span style="color: white;">With Us</span></h2>
       <p class="connect-subtitle">Join our community and stay updated with the latest news, releases, and exclusive content</p>
-      
       <div class="social-container">
         <div class="social-card">
           <div class="social-icons">
             <a href="https://www.instagram.com/" target="_blank" class="social-icon instagram">
               <div class="icon-container">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136C0 15.93 0 12 0 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
                 </svg>
               </div>
               <span class="icon-label">Instagram</span>
             </a>
-            
             <a href="https://discord.gg/5kAuT4yVCg" target="_blank" class="social-icon discord">
               <div class="icon-container">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg">
@@ -1598,7 +1445,6 @@
               </div>
               <span class="icon-label">Discord</span>
             </a>
-            
             <a href="https://github.com/DevanshInteract" target="_blank" class="social-icon github">
               <div class="icon-container">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg">
@@ -1607,7 +1453,6 @@
               </div>
               <span class="icon-label">GitHub</span>
             </a>
-            
             <a href="https://www.linkedin.com/" target="_blank" class="social-icon linkedin">
               <div class="icon-container">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg">
@@ -1621,21 +1466,18 @@
       </div>
     </div>
   </section>
-
   <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 Interact Developments. Crafted with warmth in India ☕</p>
     </div>
   </footer>
-
   <!-- Sign-In Modal -->
   <div class="signin-overlay" id="signinModal">
     <div class="signin-card">
       <button class="signin-close-btn" onclick="closeSignInModal()">
         <i class="fas fa-times"></i>
       </button>
-      
       <div class="signin-header">
         <div class="signin-logo">
           <div class="signin-logo-icon">I</div>
@@ -1643,7 +1485,6 @@
         <h2 class="signin-title">Welcome Back</h2>
         <p class="signin-subtitle">Sign in to continue to Interact Developments</p>
       </div>
-
       <form class="signin-form" onsubmit="handleSignIn(event)">
         <div class="signin-input-group">
           <i class="fas fa-envelope signin-input-icon"></i>
@@ -1655,7 +1496,6 @@
             required
           />
         </div>
-
         <div id="passwordSection">
           <div class="signin-input-group">
             <i class="fas fa-lock signin-input-icon"></i>
@@ -1667,7 +1507,6 @@
             />
             <i class="fas fa-eye signin-password-toggle" onclick="togglePasswordVisibility()"></i>
           </div>
-
           <div class="signin-options">
             <label class="signin-checkbox-label">
               <input type="checkbox" class="signin-checkbox" id="rememberMe">
@@ -1675,13 +1514,11 @@
             </label>
             <a href="#" class="signin-forgot-link">Forgot password?</a>
           </div>
-
           <button type="submit" class="signin-submit-btn" id="sendOtpBtn">
             Continue with OTP
             <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
           </button>
         </div>
-
         <div id="otpSection" style="display:none;">
           <div class="signin-input-group">
             <i class="fas fa-key signin-input-icon"></i>
@@ -1696,7 +1533,6 @@
               required
             />
           </div>
-
           <button type="button" class="signin-submit-btn" id="verifyOtpBtn" onclick="verifyOtp()">
             Verify OTP
             <i class="fas fa-check" style="margin-left: 8px;"></i>
@@ -1706,27 +1542,22 @@
           </div>
         </div>
       </form>
-
       <div class="signin-divider">
         <span>or</span>
       </div>
-
       <button class="signin-discord-btn" onclick="signInWithDiscord()">
         <i class="fab fa-discord" style="font-size: 18px;"></i>
         <span>Sign in with Discord</span>
       </button>
-
       <div class="signin-signup-link">
         Don't have an account? <a href="#" onclick="openSignUpModal(event)">Sign up</a>
       </div>
     </div>
   </div>
-
   <script>
     // WebGL Shader Implementation
     const canvas = document.getElementById('webgl-canvas');
     const gl = canvas.getContext('webgl');
-
     if (!gl) {
       console.error('WebGL not supported');
       document.body.style.background = 'linear-gradient(135deg, #0c0c10, #111216)';
@@ -1736,17 +1567,14 @@
         canvas.height = window.innerHeight;
         gl.viewport(0, 0, canvas.width, canvas.height);
       }
-      
       window.addEventListener('resize', resizeCanvas);
       resizeCanvas();
-
       const vsSource = `
         attribute vec3 position;
         void main() {
           gl_Position = vec4(position, 1.0);
         }
       `;
-
       const fsSource = `
         precision highp float;
         uniform vec2 resolution;
@@ -1754,24 +1582,18 @@
         uniform float xScale;
         uniform float yScale;
         uniform float distortion;
-
         void main() {
           vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
-          
           float d = length(p) * distortion;
-          
           float rx = p.x * (1.0 + d);
           float gx = p.x;
           float bx = p.x * (1.0 - d);
-
           float r = 0.05 / abs(p.y + sin((rx + time) * xScale) * yScale);
           float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
           float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
-          
           gl_FragColor = vec4(r, g, b, 1.0);
         }
       `;
-
       function compileShader(source, type) {
         const shader = gl.createShader(type);
         gl.shaderSource(shader, source);
@@ -1783,22 +1605,17 @@
         }
         return shader;
       }
-
       const vertexShader = compileShader(vsSource, gl.VERTEX_SHADER);
       const fragmentShader = compileShader(fsSource, gl.FRAGMENT_SHADER);
-      
       const shaderProgram = gl.createProgram();
       gl.attachShader(shaderProgram, vertexShader);
       gl.attachShader(shaderProgram, fragmentShader);
       gl.linkProgram(shaderProgram);
-      
       if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
         console.error('Program link error:', gl.getProgramInfoLog(shaderProgram));
       }
-
       const positionBuffer = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-      
       const positions = new Float32Array([
         -1.0, -1.0, 0.0,
          1.0, -1.0, 0.0,
@@ -1807,21 +1624,17 @@
         -1.0,  1.0, 0.0,
          1.0,  1.0, 0.0,
       ]);
-      
       gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
-
       const positionAttributeLocation = gl.getAttribLocation(shaderProgram, 'position');
       const resolutionUniformLocation = gl.getUniformLocation(shaderProgram, 'resolution');
       const timeUniformLocation = gl.getUniformLocation(shaderProgram, 'time');
       const xScaleUniformLocation = gl.getUniformLocation(shaderProgram, 'xScale');
       const yScaleUniformLocation = gl.getUniformLocation(shaderProgram, 'yScale');
       const distortionUniformLocation = gl.getUniformLocation(shaderProgram, 'distortion');
-
       let time = 0;
       const xScale = 1.0;
       const yScale = 0.5;
       const distortion = 0.05;
-
       function render() {
         time += 0.01;
         gl.useProgram(shaderProgram);
@@ -1836,10 +1649,8 @@
         gl.drawArrays(gl.TRIANGLES, 0, 6);
         requestAnimationFrame(render);
       }
-
       render();
     }
-
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -1853,24 +1664,20 @@
         }
       });
     });
-
     // Sign-In Modal Functions
     function openSignInModal() {
       const modal = document.getElementById('signinModal');
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-
     function closeSignInModal() {
       const modal = document.getElementById('signinModal');
       modal.classList.remove('active');
       document.body.style.overflow = 'auto';
     }
-
     function togglePasswordVisibility() {
       const passwordInput = document.getElementById('signinPassword');
       const toggleIcon = document.querySelector('.signin-password-toggle');
-      
       if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
         toggleIcon.classList.remove('fa-eye');
@@ -1881,15 +1688,13 @@
         toggleIcon.classList.add('fa-eye');
       }
     }
-
     let otpEmail = '';
-    const backendBase = 'http://localhost:3000';
-
+    // Use a backend proxy URL for GitHub Pages deployment
+    const backendBase = 'https://your-backend-proxy.herokuapp.com'; // Replace with your actual backend URL
     async function handleSignIn(event) {
       event.preventDefault();
       const email = document.getElementById('signinEmail').value.trim();
       if (!email) return;
-
       try {
         setSubmitting(true, 'sendOtpBtn');
         const res = await fetch(`${backendBase}/api/send-otp`, {
@@ -1899,7 +1704,6 @@
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Failed to send OTP');
-
         otpEmail = email;
         document.querySelector('.signin-title').textContent = 'Check your email';
         document.querySelector('.signin-subtitle').textContent = 'We sent a 6-digit code. Enter it below.';
@@ -1911,7 +1715,6 @@
         setSubmitting(false, 'sendOtpBtn');
       }
     }
-
     async function verifyOtp() {
       const code = document.getElementById('otpCode').value.trim();
       if (!otpEmail || !code) return alert('Enter the code');
@@ -1924,7 +1727,6 @@
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Invalid code');
-
         localStorage.setItem('user_session', JSON.stringify({ email: data.user.email, method: 'otp' }));
         alert('Signed in successfully');
         closeSignInModal();
@@ -1934,7 +1736,6 @@
         setSubmitting(false, 'verifyOtpBtn');
       }
     }
-
     async function resendOtp(e) {
       e.preventDefault();
       if (!otpEmail) return;
@@ -1951,21 +1752,18 @@
         alert(e.message);
       }
     }
-
     function setSubmitting(isSubmitting, btnId) {
       const btn = document.getElementById(btnId);
       if (!btn) return;
       btn.disabled = isSubmitting;
       btn.style.opacity = isSubmitting ? '0.7' : '1';
     }
-
     function signInWithDiscord() {
       // Handle Discord sign in
       const CLIENT_ID = '892280455032877096';
       const REDIRECT_URI = 'https://interactdevelopments.me/callback'; // Must match Discord Developer Portal EXACTLY
       const SCOPE = 'identify email guilds'; // Space-separated, NOT URL-encoded yet
       const RESPONSE_TYPE = 'code';
-      
       // Build URL manually to avoid double-encoding issues
       const params = new URLSearchParams({
         client_id: CLIENT_ID,
@@ -1973,34 +1771,28 @@
         response_type: RESPONSE_TYPE,
         scope: SCOPE
       });
-      
       const authUrl = `https://discord.com/oauth2/authorize?${params.toString()}`;
       console.log('OAuth URL:', authUrl); // Debug log
       window.location.href = authUrl;
     }
-
     // Discord OAuth callback is handled by callback.html
     // No need to handle it here - callback.html will redirect back to the main page
-
     function openSignUpModal(event) {
       event.preventDefault();
       alert('Sign up modal will be added soon!');
     }
-
     // Close modal when clicking outside
     document.getElementById('signinModal').addEventListener('click', function(e) {
       if (e.target === this) {
         closeSignInModal();
       }
     });
-
     // Close modal with Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeSignInModal();
       }
     });
-
     // Update all "Get Started" buttons to open sign-in modal
     document.querySelectorAll('.neon-button').forEach(button => {
       if (button.textContent.trim() === 'Get Started' || button.textContent.includes('Get Started')) {
